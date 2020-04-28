@@ -2,6 +2,8 @@
 
 package com.crm.qa.testcases;
 
+
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -22,6 +24,8 @@ public class ContactsPageTest extends TestBase {
 	
 	String sheetName = "Contacts";
 	
+	//Logger log = Logger.getLogger(ContactsPageTest.class);
+	
 	public ContactsPageTest() {
 		super();
 	}
@@ -29,6 +33,7 @@ public class ContactsPageTest extends TestBase {
 	@BeforeMethod
 	public void setUp() {
 		initialization();
+	
 		loginpage = new LoginPage();
 		homePage = loginpage.logIn(prop.getProperty("username"), prop.getProperty("password"));
 		try {
@@ -36,6 +41,7 @@ public class ContactsPageTest extends TestBase {
 		} catch (InterruptedException e) {
 			
 			e.printStackTrace();
+			//log.warn("");
 		}
 		contactsPage = homePage.clickContactsLink();
 		
